@@ -1,0 +1,116 @@
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.nav-bar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FAB12F;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list li {
+    list-style: none;
+}
+
+.nav-list li a {
+    font-famly: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    color: #EEEEEE;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #FFD700;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #1B1B1B;
+        padding: 1rem;
+        position: relative;
+        top: 70px;
+        right: 0;
+        width: 220px;
+        border-left: 3px solid #0066CC;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-list.open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+
+/*terminal CSS*/
+body {
+    background-color: #373A40;
+    font-famly: 'Ubuntu', sans-serif;
+}
+
+.terminal {
+    padding: 20px;
+    font-family: monospace;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    color: #00ff00;
+}
+
+.prompt {
+    display: flex;
+}
+
+.prompt::before {
+    content: "user@host:~$ ";
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    outline: none;
+    flex-grow: 1;
+}
+
+.output {
+    margin-top: 10px;
+    white-space: pre-wrap;
+}

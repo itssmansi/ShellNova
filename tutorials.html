@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Terminal Simulator</title>
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/style_3.css">
+</head>
+<body>
+    <nav class="nav-bar" id="navbar">
+        <div class="logo">ShellNova</div>
+        <div class="nav-toggle" id="navToggle">&#9776;</div>
+        <ul class="nav-list" id="navList">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+  <div class="container">
+    <div class="terminal-container">
+      <div class="terminal">
+        <div>
+            <h3>[X] sudo su | /dev/null | nano | nvim</h3>
+        </div>
+        <div class="output">
+          Welcome to the Linux Terminal Simulator!
+          Available commands:
+          - ls: List files and directories
+          - cat [file]: Display the contents of a file
+          - whoami: Show the current user
+          - help: Display the list of available commands
+          - date: Show the current date and time
+          - clear: Clear the terminal screen
+          - mkdir [directory]: Create a new directory
+          - rm -rf [directory]: Remove a directory and its contents
+          - exit: Exit the terminal
+        </div>
+        <div class="prompt">
+          <input type="text" class="input" placeholder="Enter a command" onkeyup="handleCommand(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const outputEl = document.querySelector('.output');
+
+    function handleCommand(event) {
+      if (event.key === 'Enter') {
+        const command = event.target.value.trim();
+        event.target.value = '';
+
+        switch (command) {
+          case 'ls':
+            outputEl.textContent += '\nDocuments\nDownloads\nMusic\nPictures\nPublic\nTemplates\nVideos';
+            break;
+          case 'cat readme.txt':
+            outputEl.textContent += '\nThis is a sample readme file.';
+            break;
+          case 'whoami':
+            outputEl.textContent += '\nuser';
+            break;
+          case 'help':
+            outputEl.textContent = 'Welcome to the Linux Terminal Simulator!\nAvailable commands:\n- ls: List files and directories\n- cat [file]: Display the contents of a file\n- whoami: Show the current user\n- help: Display the list of available commands\n- date: Show the current date and time\n- clear: Clear the terminal screen\n- mkdir [directory]: Create a new directory\n- rm -rf [directory]: Remove a directory and its contents\n- exit: Exit the terminal';
+            break;
+          case 'date':
+            outputEl.textContent += '\n' + new Date().toLocaleString();
+            break;
+          case 'clear':
+            outputEl.textContent = '';
+            break;
+          case 'mkdir test':
+            outputEl.textContent += '\nDirectory "test" created.';
+            break;
+          case 'rm -rf test':
+            outputEl.textContent += '\nDirectory "test" removed.';
+            break;
+          case 'exit':
+            outputEl.textContent += '\nExiting terminal...';
+            break;
+          default:
+            outputEl.textContent += `\nbash: ${command}: command not found`;
+        }
+      }
+    }
+  </script>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .terminal-container {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</body>
+</html>

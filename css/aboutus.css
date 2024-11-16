@@ -1,0 +1,149 @@
+/* Navigation Bar */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(40, 40, 40, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+.nav-bar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FAB12F;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list li {
+    list-style: none;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #EEEEEE;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+    transform: translateY(-3px);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #FFD700;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #1B1B1B;
+        padding: 1rem;
+        position: fixed;
+        top: 70px;
+        right: 0;
+        width: 220px;
+        border-left: 3px solid #0066CC;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-list.open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+
+
+/*about content*/
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #1f1f1f; /* Dark background */
+    color: #e0e0e0; /* Light grey text color */
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #ffc857; /* Sunset yellow */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #ffc857; /* Sunset yellow */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  p.main,
+  p.second {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    background-color: #292929; /* Slightly lighter background for emphasis */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    color: #ffc857; /* Sunset yellow */
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  p a {
+    color: #ffc857; /* Sunset yellow links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  p a:hover {
+    color: #ffd47f; /* Lighter yellow on hover */
+  }
+  
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+    }
+    p.main,
+    p.second {
+      font-size: 1rem;
+      padding: 15px;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+  
