@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/register.css" />
+    <title>Registraion</title>
+  </head>
+  <body>
+    <form autocomplete="off" class="form" onsubmit="return formValidation()">
+      <p class="title">Register</p>
+      <p class="message">
+        Sign up for interactive Linux learning and terminal access.
+      </p>
+      <div class="form-group">
+        <label>
+          <input type="text" placeholder=" " name="" id="Firstname" required />
+          <span>First Name</span>
+        </label>
+        <label>
+          <input type="text" placeholder=" " name="" id="Lastname" required />
+          <span>Last Name</span>
+        </label>
+      </div>
+      <label>
+        <input type="text" placeholder=" " name="" id="email" required />
+        <span>Email</span>
+      </label>
+      <label>
+        <input type="password" id="password" placeholder=" " name="" required />
+        <span>Password</span>
+        <span class="icon" id="togglePassword">
+          <i class="far fa-eye-slash"></i>
+        </span>
+      </label>
+      <label>
+        <input
+          type="password"
+          id="passwordConfirm"
+          placeholder=" "
+          name=""
+          required
+        />
+        <span>Confirm Password</span>
+        <span class="icon" id="passwordconfirm">
+          <i class="far fa-eye-slash"></i>
+        </span>
+      </label>
+      <button class="submit">Submit</button>
+      <p class="signin">
+        Already have an account?
+        <a href="#">Sign In</a>
+      </p>
+    </form>
+
+    <script>
+      function formValidation() {
+        var firstName = document.getElementById("Firstname").value;
+        var lastName = document.getElementById("Lastname").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var passwordConfirm = document.getElementById("passwordConfirm").value;
+
+        var checkFirstName = /^[A-za-z. ]{3,30}$/;
+        var checkLastName = /^[A-za-z. ]{3,40}$/;
+        var checkEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/;
+        var checkpassword =
+          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{8,16}$/;
+
+        if (!checkFirstName.test(firstName)) {
+          alert("Invalid First Name! Please enter valid first name.");
+          return false;
+        }
+
+        if (!checkLastName.test(lastName)) {
+          alert("Invalid Last Name! Please enter valid last name.");
+          return false;
+        }
+
+        if (!checkEmail.test(email)) {
+          alert("Invalid Email! Please enter valid email id.");
+          return false;
+        }
+
+        if (!checkpassword.test(password)) {
+          alert("Invalid Password! Please enter valid password.");
+          return false;
+        }
+
+        if (password !== passwordConfirm) {
+          alert("Password and Confirm Password do not match.");
+          return false;
+        }
+
+        if (confirm("Do you want us to remember your first name and email?")) {
+          var date = new Date();
+          date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000)); // Add 30 days
+          var expires = "expires=" + date.toUTCString();
+          document.cookie ="rememberFirstName=" + encodeURIComponent(firstName) + expires + "; path=/";
+          document.cookie ="rememberEmail=" + encodeURIComponent(email) + expires + "; path=/";
+          
+            alert("We’ll remember you for next time!");
+        }
+        else{
+          document.cookie = "rememberedFirstName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+          document.cookie = "rememberedEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+          alert("We won't remember your details.");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -47,44 +47,26 @@
   <script>
     const outputEl = document.querySelector('.output');
 
-    function handleCommand(event) {
-      if (event.key === 'Enter') {
-        const command = event.target.value.trim();
-        event.target.value = '';
+    async function handleCommand(event) {
+  if (event.key === 'Enter') {
+    const input = event.target.value.trim();
+    event.target.value = '';
 
-        switch (command) {
-          case 'ls':
-            outputEl.textContent += '\nDocuments\nDownloads\nMusic\nPictures\nPublic\nTemplates\nVideos';
-            break;
-          case 'cat readme.txt':
-            outputEl.textContent += '\nThis is a sample readme file.';
-            break;
-          case 'whoami':
-            outputEl.textContent += '\nuser';
-            break;
-          case 'help':
-            outputEl.textContent = 'Welcome to the Linux Terminal Simulator!\nAvailable commands:\n- ls: List files and directories\n- cat [file]: Display the contents of a file\n- whoami: Show the current user\n- help: Display the list of available commands\n- date: Show the current date and time\n- clear: Clear the terminal screen\n- mkdir [directory]: Create a new directory\n- rm -rf [directory]: Remove a directory and its contents\n- exit: Exit the terminal';
-            break;
-          case 'date':
-            outputEl.textContent += '\n' + new Date().toLocaleString();
-            break;
-          case 'clear':
-            outputEl.textContent = '';
-            break;
-          case 'mkdir test':
-            outputEl.textContent += '\nDirectory "test" created.';
-            break;
-          case 'rm -rf test':
-            outputEl.textContent += '\nDirectory "test" removed.';
-            break;
-          case 'exit':
-            outputEl.textContent += '\nExiting terminal...';
-            break;
-          default:
-            outputEl.textContent += `\nbash: ${command}: command not found`;
-        }
-      }
-    }
+    // Send the command to the backend
+    const response = await fetch('http://localhost:3000/run', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ command: input }),
+    });
+
+    // Wait for the response and update the output with the returned data
+    const data = await response.json();
+    outputEl.textContent += `\n$ ${input}\n${data.output}`;
+  }
+}
+
   </script>
   <style>
     .container {
