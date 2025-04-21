@@ -9,6 +9,33 @@
 
     <title>ShellNova - Learn Linux</title>
 
+    <style>
+        #goBackUpBtn {
+            background-color: #ff8800; /* Orange-yellow color */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 25px; /* Rounded edges */
+            padding: 10px 20px; /* Padding for a nice button size */
+            font-size: 16px; /* Text size */
+            cursor: pointer; /* Pointer cursor on hover */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Hidden by default */
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for effect */
+            transition: background-color 0.3s ease;
+          }
+          
+          #goBackUpBtn:hover {
+            background-color: #ff6600; /* Darker yellow on hover */
+          }
+          
+          #goBackUpBtn:focus {
+            outline: none; /* Remove focus outline */
+          }
+        </style>
+
 </head>
 <script src="./javascript/navbar.js"></script>
 <body>
@@ -76,21 +103,87 @@
         </div>
     </div>
 
-    <!-- Content Cards Section -->
-    <div class="content">
-        <div class="card">
-            <img src="images/Linux-Logo.png" alt="Linux OS" class="card-img">
-            <h2 class="title">What is Linux?</h2>
-            <p class="para">Linux is a powerful, open-source operating system known for its speed, security, and flexibility. It’s perfect for both beginners and experts alike, offering unparalleled customization and control.</p>
-        </div>
-        <div class="card">
-            <img src="images/why_use.png" alt="Why Linux?" class="card-img">
-            <h2 class="title">Why Use Linux?</h2>
-            <p class="para">Experience unmatched speed, security, and reliability. Linux is efficient, free, and backed by a strong community. Whether you’re learning or coding, Linux empowers you to achieve more.</p>
-        </div>
-    </div>
+   <!--Roadmap-->
+<!-- Link to Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+<div class="roadmap-container">
+  <h1 class="roadmap-heading">Roadmap to Learning Linux & System Administration 🐧</h1>
+
+  <div class="roadmap-step animate-step">
+    <div class="step-number"><i class="fas fa-terminal"></i></div>
+    <div class="step-content">
+      <h2>Understand the Linux Basics</h2>
+      <p>Learn about the terminal, file systems, basic commands, and navigating directories with ease.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-step animate-step">
+    <div class="step-number"><i class="fas fa-users"></i></div>
+    <div class="step-content">
+      <h2>User & Permissions Management</h2>
+      <p>Master managing users, groups, file permissions, and ownership to secure your system.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-step animate-step">
+    <div class="step-number"><i class="fas fa-cogs"></i></div>
+    <div class="step-content">
+      <h2>Package Management</h2>
+      <p>Get comfortable installing, updating, and removing software using apt, yum, and pacman.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-step animate-step">
+    <div class="step-number"><i class="fas fa-server"></i></div>
+    <div class="step-content">
+      <h2>System Services & Logs</h2>
+      <p>Learn about systemd, starting/stopping services, and reading system logs for troubleshooting.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-step animate-step">
+    <div class="step-number"><i class="fas fa-network-wired"></i></div>
+    <div class="step-content">
+      <h2>Networking & SSH</h2>
+      <p>Understand networking basics, SSH setup, and remote server connections securely.</p>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- This button will be visible at the bottom of the page -->
+    <button id="goBackUpBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; display: none;">Go Back Up</button>
+
+    <script>
+        // Function to scroll to the top smoothly
+        function scrollToTop() {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }
     
+        // Show or hide the "Go Back Up" button depending on the scroll position
+        window.onscroll = function() {
+          const btn = document.getElementById("goBackUpBtn");
+    
+          // If the user scrolls down 100px from the top, show the button
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            btn.style.display = "block"; // Show the button
+          } else {
+            btn.style.display = "none"; // Hide the button
+          }
+        };
+    
+        // Add an event listener to the button to scroll up when clicked
+        document.getElementById("goBackUpBtn").onclick = function() {
+          scrollToTop();
+        };
+      </script>
+
 </body>
 
 </html>

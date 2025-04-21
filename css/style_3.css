@@ -7,7 +7,7 @@
     position: relative;
     width: 100%;
     z-index: 100;
-    background-color: rgba(40, 40, 40, 0.5);
+    background-color: rgba(26, 26, 26, 0.84);
     transition: background-color 0.3s ease;
 }
 
@@ -42,8 +42,8 @@
 }
 
 .nav-list li a:hover {
-    color: #FFD700;
-    text-decoration: underline;
+    color: rgb(255, 174, 0);
+    text-decoration: none;
     transform: translateY(-3px);
 }
 
@@ -78,12 +78,12 @@
     }
 }
 
-
 /*terminal CSS*/
 body {
     background-color: #373A40;
-    font-famly: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
+
 
 .terminal {
     padding: 20px;
@@ -91,7 +91,7 @@ body {
     height: calc(100vh - 40px);
     overflow-y: auto;
     box-sizing: border-box;
-    color: #00ff00;
+    color:rgb(255, 166, 0);
 }
 
 .prompt {

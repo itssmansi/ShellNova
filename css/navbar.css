@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    position: fixed;
+    position: fixed; 
     width: 100%;
     z-index: 100;
     background-color: rgba(40, 40, 40, 0.5);
@@ -41,8 +41,8 @@
 }
 
 .nav-list li a:hover {
-    color: #FFD700;
-    text-decoration: underline;
+    color:rgb(255, 174, 0);
+    text-decoration: none;
     transform: translateY(-3px);
 }
 

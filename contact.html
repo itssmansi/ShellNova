@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/contact.css">
     <title>Contact</title>
+
+    <style>
+      #goBackUpBtn {
+          background-color: #ff8800; 
+          color: white; 
+          border: none; 
+          border-radius: 25px; 
+          padding: 10px 20px; 
+          font-size: 16px; 
+          cursor: pointer; 
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          display: none; 
+          text-align: center;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+          transition: background-color 0.3s ease;
+        }
+        
+        #goBackUpBtn:hover {
+          background-color: #ff6600; 
+        }
+        
+        #goBackUpBtn:focus {
+          outline: none; 
+        }
+      </style>
   </head>
   <body>
 
@@ -47,5 +74,34 @@
       </ul>
       <p class="message">Thank you for visiting ShellNova! We’re here to make your Linux learning journey smooth and exciting.</p>
     </div>
+    <button id="goBackUpBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; display: none;">Go Back Up</button>
+
+<script>
+    // Function to scroll to the top smoothly
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Show or hide the "Go Back Up" button depending on the scroll position
+    window.onscroll = function() {
+      const btn = document.getElementById("goBackUpBtn");
+
+      // If the user scrolls down 100px from the top, show the button
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block"; // Show the button
+      } else {
+        btn.style.display = "none"; // Hide the button
+      }
+    };
+
+    // Add an event listener to the button to scroll up when clicked
+    document.getElementById("goBackUpBtn").onclick = function() {
+      scrollToTop();
+    };
+  </script>
   </body>
 </html>

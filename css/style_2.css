@@ -43,8 +43,8 @@
 }
 
 .nav-list li a:hover {
-    color: #FFD700;
-    text-decoration: underline;
+    color: rgb(255, 174, 0);
+    text-decoration: none;
     transform: translateY(-3px);
 }
 
@@ -127,29 +127,18 @@ ul.reason-list li {
     color: #B0B0B0;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem;
-    margin-left: 20px;
-    background-color:black;
-    color: #FFFFFF;
+.img_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px;
+    padding: 20px;
 }
-
-table th, table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #444;
-}
-
-table th {
-    background-color: #F39C12;
-    color: #fff;
-}
-
-table td {
-    background-color: #2C3E50;
+#linux_image {
+    height: 800px;
+    width: 800px;
+    border: none;
 }
 
 /* Section Styling */
